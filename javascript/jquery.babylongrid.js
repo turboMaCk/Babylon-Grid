@@ -1,6 +1,6 @@
 /*
  *	Project: Babylon Grid
- *	Version: 0.8
+ *	Version: 0.8.1
  *	Description: Lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent colun width support and few display mods.
  *	Author: Marek Fajkus @turbo_MaCk (http://marekrocks.it)
  *	License: MIT
@@ -130,7 +130,7 @@
 
 		},
 		/*
-		set Columns
+		Set Columns
 		*/
 		_setColumns: function(columns) {
 			var $container = this.cashed.container,
@@ -166,7 +166,7 @@
 				columnHeight,
 				$plugin = this; // well I don't like this very much, but we need to change context, right?
 
-			// Disable TOWER DISPLAY while procesing
+			// Disable TOWER / CITY DISPLAY while procesing
 			if ( $plugin.options.display ) {
 				$container
 					.removeClass('tower')
@@ -195,7 +195,7 @@
 						$lowColumn = $(this);
 					}
 
-					// ff height of all columns is checked
+					// if height of all columns is checked
 					if ( i + 1 >= columns ) {
 
 						// add article to lowest one
@@ -210,7 +210,7 @@
 					}
 				});
 
-				// ENABLE TOWER DISPLAY
+				// ENABLE TOWER / CITY DISPLAY
 				if ( $plugin.options.display ) {
 					if ( count+1 === $articles.length ) {
 						if ( $plugin.options.display === 'tower' ) {
