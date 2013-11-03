@@ -1,6 +1,6 @@
 /*
  *	Project: Babylon Grid sampl SASS/CSS
- *	Version: 0.8
+ *	Version: 0.8.1
  *	Description: Lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent colun width support and few display mods.
  *	Author: Marek Fajkus @turbo_MaCk (http://marekrocks.it)
  *	License: MIT
@@ -51,20 +51,21 @@
   height: 0;
   clear: both;
 }
-/* line 70, ../sass/jquery.blockgrid.scss */
-.babylongrid-container .babylongrid-container.tower, .babylongrid-container .babylongrid-container.city {
-  display: table;
-}
 /* line 72, ../sass/jquery.blockgrid.scss */
-.babylongrid-container .babylongrid-container.tower .column, .babylongrid-container .babylongrid-container.city .column {
-  display: table-cell;
-  float: none;
-}
-/* line 81, ../sass/jquery.blockgrid.scss */
 .babylongrid-container.tower .column {
   vertical-align: bottom;
 }
-/* line 89, ../sass/jquery.blockgrid.scss */
+/* line 80, ../sass/jquery.blockgrid.scss */
 .babylongrid-container.city .column {
   vertical-align: middle;
+}
+
+/* line 87, ../sass/jquery.blockgrid.scss */
+.babylongrid-container.tower, .babylongrid-container.city {
+  display: table;
+}
+/* line 89, ../sass/jquery.blockgrid.scss */
+.babylongrid-container.tower .column, .babylongrid-container.city .column {
+  display: table-cell;
+  float: none;
 }

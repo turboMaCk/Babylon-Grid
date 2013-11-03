@@ -1,6 +1,6 @@
 /*
  *	Project: Babylon Grid sampl SASS/CSS
- *	Version: 0.8
+ *	Version: 0.8.1
  *	Description: Lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent colun width support and few display mods.
  *	Author: Marek Fajkus @turbo_MaCk (http://marekrocks.it)
  *	License: MIT
@@ -66,15 +66,6 @@
 		clear: both;
 	}
 
-	// Babylon Displays
-	%table-display {
-		display: table;
-		.column {
-			display: table-cell;
-			float: none;
-		}
-	}
-
 	// Tower Display
 	&.tower {
 		@extend %table-display;
@@ -89,5 +80,14 @@
 		.column {
 			vertical-align: middle;
 		}
+	}
+}
+
+// Babylon Displays
+%table-display {
+	display: table;
+	.column {
+		display: table-cell;
+		float: none;
 	}
 }
