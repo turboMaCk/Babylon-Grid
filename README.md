@@ -25,7 +25,7 @@ Include plugin CSS:
 
     <link rel="stylesheet" href="css/jquery.babylongrid.css">
 
-Or import plugin SCSS to your SASS:
+Or import plugin SCSS to your Sass:
 
     @import "jquery.babylongrid";
 
@@ -119,12 +119,16 @@ And define columns sizes for every sheme using SASS or CSS (example in SCSS):
 ## Other parametres
 
 * `firstToRight:` true/false, // default: false; move first article to last column
-* `display:` 'tower'/'city', // default: Nan; Set vertical align to bottom or center
+* `display:` 'tower'/'city', // default: null; Set vertical align to bottom or center
+* `heightDivisor:` [number], // default: 50; Article height divisor. For disable set 1;
 
-## TODO:
+## Uniform Grid Generator
 
-* Article Height divisor for prevent little article height difference
-* SASS uniform (all columns with same width) generator
+Simple component that allow you quickly generate Babylon Grid's css for your custom grid scheme using Sass (Scss syntax).
+
+* Open sass/_uniformgrid.generator.scss
+* Edit `$scheme` variable => each value is number of columns in each scheme
+* Use Sass `@import 'uniformgrid.generator' or compilate SCSS straight to CSS
 
 ## Licence
 MIT
