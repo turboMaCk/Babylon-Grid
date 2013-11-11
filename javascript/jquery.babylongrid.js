@@ -233,6 +233,9 @@
                 }
             });
         },
+        /*
+        Set Article Height
+        */
         _setArticleHeight: function($article) {
             var divisor = this.options.heightDivisor,
                 height = $article.height(),
