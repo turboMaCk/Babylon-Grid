@@ -130,5 +130,10 @@ Simple component that allow you quickly generate Babylon Grid's css for your cus
 * Edit `$scheme` variable => each value is number of columns in each scheme
 * Use Sass `@import 'uniformgrid.generator' or compilate SCSS straight to CSS
 
+## Optimalization
+It's important to load all images before initializing plugin (images sizes have effect on article height).
+To prevent page skiping from default layout to Babylon's you can set container element to `visibility: hidden;` in your CSS.
+Plugin itself test if container element is hidden a set it to visible right after whole layout is set.
+
 ## Licence
 MIT

@@ -1,6 +1,6 @@
 /*
  *  Project: Babylon Grid
- *  Version: 1.1
+ *  Version: 1.2
  *  Description: Lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent colun width support and few display mods.
  *  Author: Marek Fajkus @turbo_MaCk (http://marekrocks.it)
  *  License: MIT
@@ -40,7 +40,7 @@
                 ],
                 display: null,
                 firstToRight: false,
-                heightDivisor: 50,
+                heightDivisor: 25,
             };
 
     // The actual plugin constructor
@@ -69,13 +69,13 @@
             var $plugin = this; // well I don't like this very much, but we need to change context, right?
 
             // Inner wrap element with grid container
-            $(this.element).wrapInner('<div class="babylongrid-container" />');
+            $($plugin.element).wrapInner('<div class="babylongrid-container" />');
 
             // Cashe Elements
-            this.casheElements();
+            $plugin.casheElements();
 
             // Start plugin on load
-            this._setGrid();
+            $plugin._setGrid();
 
             // Responzive on window resize
             $(window).resize(function() {
@@ -123,6 +123,8 @@
 
                         // time to set columns
                         $plugin._setColumns(columns);
+                    } else {
+                        $plugin._resizeArticles();
                     }
 
                     return false;
@@ -221,9 +223,16 @@
                     }
                 });
 
-                // ENABLE TOWER / CITY DISPLAY
-                if ( $plugin.options.display ) {
-                    if ( count+1 === $articles.length ) {
+                // Right before whole grid is set
+                if ( count+1 === $articles.length ) {
+
+                    // show article if they are hidden by default
+                    if ( $plugin.cashed.element.css('visibility') === 'hidden' ) {
+                        $plugin.cashed.element.css('visibility', 'visible');
+                    }
+
+                    // ENABLE TOWER / CITY DISPLAY
+                    if ( $plugin.options.display ) {
                         if ( $plugin.options.display === 'tower' ) {
                             $container.addClass('tower');
                         } else if ( $plugin.options.display === 'city' ) {
@@ -237,6 +246,9 @@
         Set Article Height
         */
         _setArticleHeight: function($article) {
+            // remove inline style before storing values into variables
+            $article.removeAttr('style');
+
             var divisor = this.options.heightDivisor,
                 height = $article.height(),
                 difference = height%divisor;
@@ -244,6 +256,17 @@
             if ( difference > 0 ) {
                 $article.height(height+divisor-difference);
             }
+        },
+        /*
+        Change just articles height
+        */
+        _resizeArticles: function() {
+            var $plugin = this; // well I don't like this very much, but we need to change context, right?
+
+            // Loop articles and set them height
+            $.each($plugin.cashed.articles, function() {
+                $plugin._setArticleHeight($(this));
+            });
         }
     };
 
