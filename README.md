@@ -116,7 +116,7 @@ And define columns sizes for every sheme using SASS or CSS (example in SCSS):
         }
     }
 
-## Other parametres
+## Other parameters
 
 * `firstToRight:` true/false, // default: false; move first article to last column
 * `display:` 'tower'/'city', // default: null; Set vertical align to bottom or center
