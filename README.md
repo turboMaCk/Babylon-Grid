@@ -132,14 +132,23 @@ fire `babylongrid:resize` event on element
 
 Simple component that allow you quickly generate Babylon Grid's css for your custom grid scheme using Sass (Scss syntax).
 
-* Open sass/_uniformgrid.generator.scss
+* Open `sass/_uniformgrid.generator.scss`
 * Edit `$scheme` variable => each value is number of columns in each scheme
 * Use Sass `@import 'uniformgrid.generator' or compilate SCSS straight to CSS
 
 ## Optimalization
+
 It's important to load all images before initializing plugin (images sizes have effect on article height).
 To prevent page skiping from default layout to Babylon's you can set container element to `visibility: hidden;` in your CSS.
-Plugin itself test if container element is hidden a set it to visible right after whole layout is set.
+Plugin itself test if container element is hidden a set it to visible right after whole layout is ternatively you can init plugin on page load and then force redrawing on instace via event. See
+
+**Alternatively you can init plugin on page load and then force redrawing on instace via event. See above Force redraw grid.**
+
+## TODO
+
+* [ ] Add bower support
+* [ ] Separate `source` adn `distributions/builds`
+* [ ] Automate tasks with `grunt`, `gulp` or `brokoli`
 
 ## Licence
 MIT
