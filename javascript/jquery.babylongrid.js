@@ -81,6 +81,10 @@
             $(window).resize(function() {
                 $plugin._setGrid();
             });
+
+            $(this.element).on('babylongrid:resize', function() {
+                $plugin._setGrid();
+            });
         },
         /*
         Cash elements
