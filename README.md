@@ -116,6 +116,12 @@ And define columns sizes for every sheme using SASS or CSS (example in SCSS):
         }
     }
 
+## Force redraw grid
+
+fire `babylongrid:resize` event on element
+
+    $('#babylongrid').trigger('babylongrid:resize')
+
 ## Other parameters
 
 * `firstToRight:` true/false, // default: false; move first article to last column
