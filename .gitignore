@@ -4,3 +4,4 @@ config.rb
 .sass-cache
 demo.scss
 _resets.scss
+config.codekit
