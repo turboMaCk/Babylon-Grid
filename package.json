@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/turboMaCk/Babylon-Grid/issues"
   },
-  "homepage": "https://github.com/turboMaCk/Babylon-Grid"
+  "homepage": "https://github.com/turboMaCk/Babylon-Grid",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-sass": "^0.7.3",
+    "grunt-contrib-uglify": "^0.5.0"
+  }
 }
