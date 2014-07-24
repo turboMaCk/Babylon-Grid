@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 					expand: true,
 					cwd: 'src/sass',
 					src: ['*.{scss, sass}'],
-					dest: 'dist/css',
+					dest: 'demo/stylesheets',
 					ext: '.css'
 				}]
 			},
@@ -27,14 +27,23 @@ module.exports = function(grunt) {
 			scripts: ['src/javascript/jquery.babylongrid.js'],
 			gruntfile: ['Gruntfile.js']
 		},
-		uglify: {
-			scripts: {
+		copy: {
+			dev: {
 				files: [{
-				expand: true,
-				cwd: 'src/javascript/',
-				src: '*.js',
-				dest: 'dist/js'
-			}]
+					expand: true,
+					cwd: 'src/javascript',
+					src: '*.js',
+					dest: 'demo/javascript',
+					flatten: true,
+					filter: 'isFile',
+				},{
+					expand: true,
+					cwd: 'bower_components/jquery/dist/',
+					src: 'jquery.min.js',
+					dest: 'demo/javascript',
+					flatten: true,
+					filter: 'isFile',
+				}]
 			}
 		},
 		connect: {
@@ -62,7 +71,7 @@ module.exports = function(grunt) {
 			options: {
 				livereload: true
 			}
-		}
+		},
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-sass');
@@ -70,8 +79,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 
-	grunt.registerTask('dev', ['jshint', 'sass:dev']);
+	grunt.registerTask('dev', ['jshint', 'sass:dev', 'copy:dev']);
 	grunt.registerTask('serve', ['dev', 'connect:server', 'watch']);
 	grunt.registerTask('server', ['serve']);
 	grunt.registerTask('dist', ['jshint', 'sass:dist', 'uglify:scripts']);
