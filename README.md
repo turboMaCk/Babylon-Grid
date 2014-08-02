@@ -153,9 +153,10 @@ Plugin itself test if container element is hidden a set it to visible right afte
 
 ## TODO
 
-* [ ] Add bower support
+* [x] Add bower support
 * [x] Separate `source` and `distributions/builds`
 * [x] Automate tasks with `grunt`, `gulp` or `broccoli`
+* [ ] Ajax support (for infinit scroll)
 
 ## Licence
 MIT
