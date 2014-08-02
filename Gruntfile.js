@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 					expand: true,
 					cwd: 'src/sass',
 					src: ['*.{scss, sass}'],
-					dest: 'demo/stylesheets',
+					dest: '.tmp/stylesheets',
 					ext: '.css'
 				}]
 			},
@@ -31,42 +31,78 @@ module.exports = function(grunt) {
 			dev: {
 				files: [{
 					expand: true,
-					cwd: 'src/javascript',
-					src: '*.js',
-					dest: 'demo/javascript',
-					flatten: true,
-					filter: 'isFile',
-				},{
-					expand: true,
 					cwd: 'bower_components/jquery/dist/',
 					src: 'jquery.min.js',
-					dest: 'demo/javascript',
+					dest: '.tmp/javascript',
 					flatten: true,
-					filter: 'isFile',
+					filter: 'isFile'
+				},
+				{
+					expand: true,
+					cwd: 'src/javascript',
+					src: '*.js',
+					dest: '.tmp/javascript',
+					flatten: true,
+					filter: 'isFile'
+				},
+				{
+					expand: true,
+					cwd: 'src',
+					src: 'index.html',
+					dest: '.tmp',
+					filter: 'isFile'
+				},
+				{
+					expand: true,
+					cwd: 'src/css',
+					src: '*.css',
+					dest: '.tmp/stylesheets',
+					flatten: true,
+					filter: 'isFile'
+				},
+				{
+					expand: true,
+					cwd: 'src/images',
+					src: '**',
+					dest: '.tmp/images',
+					flatten: true,
+					filter: 'isFile'
+				},
+				{
+					expand: true,
+					cwd: 'src/fonts',
+					src: '**',
+					dest: '.tmp/fonts',
+					flatten: true,
+					filter: 'isFile'
 				}]
-			}
+			},
 		},
 		connect: {
 			server: {
 				options: {
 					hostname: '127.0.0.1',
 					port: 1337,
-					base: 'demo'
+					base: '.tmp'
 				}
 			}
 		},
 		watch: {
 			scripts: {
 				files: 'src/javascript/jquery.babylongrid.js',
-				tasks: ['jshint:scripts'],
+				tasks: ['jshint:scripts', 'copy:dev'],
 			},
 			sass: {
 				files: 'src/sass/*.{sass, scss}',
 				tasks: ['sass:dev']
 			},
-			statics: {
-				files: 'demo/index.html',
-				tasks: []
+			css: {
+				files: 'src/css/*.css',
+				tasks: ['copy:dev']
+			},
+			html: {
+				files: 'src/index.html',
+				tasks: ['copy:dev']
 			},
 			options: {
 				livereload: true
