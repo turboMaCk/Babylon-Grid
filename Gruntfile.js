@@ -19,7 +19,7 @@ module.exports = function(grunt) {
 					ext: '.css'
 				}],
 				options: {
-					style: 'compressed'
+					style: 'expanded'
 				}
 			}
 		},
@@ -77,6 +77,39 @@ module.exports = function(grunt) {
 					filter: 'isFile'
 				}]
 			},
+			demo: {
+				files: [{
+					expand: true,
+					cwd: '.tmp',
+					src: '**/*',
+					dest: 'demo'
+				}]
+			},
+			dist: {
+				files: [{
+					expand: true,
+					cwd: 'src/sass/',
+					src: '**',
+					dest: 'dist/sass',
+					flatten: true,
+					filter: 'isFile'
+				},
+				{
+					expand: true,
+					cwd: '.tmp/javascript',
+					src: 'jquery.babylongrid.js',
+					dest: 'dist',
+					flatten: true,
+					filter: 'isFile'
+				}]
+			}
+		},
+		uglify: {
+			dist: {
+				files: {
+					'dist/jquery.babylongrid.min.js': ['.tmp/javascript/jquery.babylongrid.js']
+				}
+			}
 		},
 		connect: {
 			server: {
@@ -117,9 +150,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 
+	// dev tasks
 	grunt.registerTask('dev', ['jshint', 'sass:dev', 'copy:dev']);
 	grunt.registerTask('serve', ['dev', 'connect:server', 'watch']);
 	grunt.registerTask('server', ['serve']);
-	grunt.registerTask('dist', ['jshint', 'sass:dist', 'uglify:scripts']);
+
+	// dist tasks
+	grunt.registerTask('demo', ['dev', 'copy:demo']);
+	grunt.registerTask('build', ['demo', 'copy:dist', 'uglify:dist', 'sass:dist']);
 	grunt.registerTask('default', ['dist']);
 };
