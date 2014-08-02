@@ -9,8 +9,15 @@ Babylon Grid is lightweight jQuery + CSS plugin for creating responsive, dynamic
 
 *You can donate this plugin via paypall if you like it. (marek.faj@gmail.com)*
 
+## Instalation
+
+Best way to install this plugin is using **Borwer** 
+
+    $ bower install babylon-grid --save
+
 ## Usage
 
+**You'll find all production ready files in dist/ folder**
 
 Include jQuery
 
@@ -23,13 +30,13 @@ Include plugin
 
 Include plugin CSS:
 
-    <link rel="stylesheet" href="css/jquery.babylongrid.css">
+    <link rel="stylesheet" href="css/babylongrid-default.css">
 
-Or import plugin SCSS to your Sass:
+Or import plugin SCSS to your sass files:
 
-    @import "jquery.babylongrid";
+    @import "sass/babylongrid-default";
 
-Apply plugin method for your container element with articles inside.
+Init plugin on element:
 
     <div id="babylongrid">
         <article>
@@ -74,7 +81,7 @@ You can set custom scheme throught `scheme` parameter start from largest screen 
                ]
     });
 
-And define columns sizes for every sheme using SASS or CSS (example in SCSS):
+And define columns sizes for every scheme using SASS or CSS (example in SCSS) *unecessary if you're using default styles without custom grind configuration*:
 
      .babylongrid-container {
 
@@ -130,7 +137,7 @@ fire `babylongrid:resize` event on element
 
 ## Uniform Grid Generator
 
-Simple component that allow you quickly generate Babylon Grid's css for your custom grid scheme using Sass (Scss syntax).
+Simple component that allow you quickly generate Babylon Grid's css for your custom grid scheme using SASS.
 
 * Open `sass/_uniformgrid.generator.scss`
 * Edit `$scheme` variable => each value is number of columns in each scheme
@@ -138,17 +145,17 @@ Simple component that allow you quickly generate Babylon Grid's css for your cus
 
 ## Optimalization
 
-It's important to load all images before initializing plugin (images sizes have effect on article height).
+**It's important to load all images before initializing plugin (images sizes have effect on article height).**
 To prevent page skiping from default layout to Babylon's you can set container element to `visibility: hidden;` in your CSS.
 Plugin itself test if container element is hidden a set it to visible right after whole layout is ternatively you can init plugin on page load and then force redrawing on instace via event. See
 
-**Alternatively you can init plugin on page load and then force redrawing on instace via event. See above Force redraw grid.**
+**Alternatively you can init plugin on page load and then force redrawing on instace via event. See above `Force redraw grid`.**
 
 ## TODO
 
 * [ ] Add bower support
-* [ ] Separate `source` adn `distributions/builds`
-* [ ] Automate tasks with `grunt`, `gulp` or `brokoli`
+* [x] Separate `source` adn `distributions/builds`
+* [x] Automate tasks with `grunt`, `gulp` or `broccoli`
 
 ## Licence
 MIT
