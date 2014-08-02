@@ -77,6 +77,14 @@ module.exports = function(grunt) {
 					filter: 'isFile'
 				}]
 			},
+			demo: {
+				files: [{
+					expand: true,
+					cwd: '.tmp',
+					src: '**/*',
+					dest: 'demo'
+				}]
+			}
 		},
 		connect: {
 			server: {
@@ -117,9 +125,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 
+	// dev tasks
 	grunt.registerTask('dev', ['jshint', 'sass:dev', 'copy:dev']);
 	grunt.registerTask('serve', ['dev', 'connect:server', 'watch']);
 	grunt.registerTask('server', ['serve']);
+
+	// dist tasks
+	grunt.registerTask('demo', ['dev', 'copy:demo']);
 	grunt.registerTask('dist', ['jshint', 'sass:dist', 'uglify:scripts']);
 	grunt.registerTask('default', ['dist']);
 };
