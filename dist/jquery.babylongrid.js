@@ -1,21 +1,12 @@
 /*
  *  Project: Babylon Grid
- *  Version: 1.2
+ *  Version: 2.0
  *  Description: Lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent colun width support and few display mods.
  *  Author: Marek Fajkus @turbo_MaCk (http://marekrocks.it)
  *  License: MIT
  */
 
 ;(function ( $, window, undefined ) {
-
-    // undefined is used here as the undefined global variable in ECMAScript 3 is
-    // mutable (ie. it can be changed by someone else). undefined isn't really being
-    // passed in so we can ensure the value of it is truly undefined. In ES5, undefined
-    // can no longer be modified.
-
-    // window and document are passed through as local variables rather than globals
-    // as this (slightly) quickens the resolution process and can be more efficiently
-    // minified (especially when both are regularly referenced in your plugin).
 
     // Create the defaults once
     var pluginName = 'babylongrid',
@@ -47,10 +38,7 @@
     var Plugin = function Plugin( element, options ) {
         this.element = element;
 
-        // jQuery has an extend method which merges the contents of two or
-        // more objects, storing the result in the first object. The first object
-        // is generally empty as we don't want to alter the default options for
-        // future instances of the plugin
+        // extend defaults with options
         this.options = $.extend( {}, defaults, options) ;
 
         this._defaults = defaults;
@@ -61,29 +49,26 @@
 
     Plugin.prototype = {
         init: function () {
-            // Place initialization logic here
-            // You already have access to the DOM element and the options via the instance,
-            // e.g., this.element and this.options
 
             // Store this in var for changing context
-            var $plugin = this; // well I don't like this very much, but we need to change context, right?
+            var self = this;
 
             // Inner wrap element with grid container
-            $($plugin.element).wrapInner('<div class="babylongrid-container" />');
+            $(this.element).wrapInner('<div class="babylongrid-container" />');
 
             // Cashe Elements
-            $plugin.casheElements();
+            this.casheElements();
 
             // Start plugin on load
-            $plugin._setGrid();
+            this._setGrid();
 
             // Responzive on window resize
             $(window).resize(function() {
-                $plugin._setGrid();
+                self._setGrid();
             });
 
             $(this.element).on('babylongrid:resize', function() {
-                $plugin._setGrid();
+                self._setGrid();
             });
         },
         /*
@@ -108,13 +93,14 @@
                 containerWidth = $container.width(),
                 containerClass,
                 columns,
-                $plugin = this; // well I don't like this very much, but we need to change context, right?
+                self = this;
 
             // loop options and set container class
             $.each( this.options.scheme, function() {
+
                 if ( this.minWidth <= containerWidth ) {
                     columns = this.columns;
-                    containerClass = 'container-'+columns;
+                    containerClass = 'container-' + columns;
 
                     // check if container have to change class
                     if ( !$container.hasClass(containerClass) ) {
@@ -126,9 +112,9 @@
                             .addClass(containerClass);
 
                         // time to set columns
-                        $plugin._setColumns(columns);
+                        self._setColumns(columns);
                     } else {
-                        $plugin._resizeArticles();
+                        self._resizeArticles();
                     }
 
                     return false;
@@ -172,17 +158,17 @@
                 $lowColumn,
                 columnHeight,
                 $oldLowColumn,
-                $plugin = this; // well I don't like this very much, but we need to change context, right?
+                self = this;
 
             // Disable TOWER / CITY DISPLAY while procesing
-            if ( $plugin.options.display ) {
+            if ( this.options.display ) {
                 $container
                     .removeClass('tower')
                     .removeClass('city');
             }
 
             // First to Right side
-            if ( $plugin.options.firstToRight ) {
+            if ( this.options.firstToRight ) {
 
                 // Just simple trik => set last column to be lower:-)
                 $columns.filter('.column-' + columns).data('height', -1);
@@ -210,8 +196,8 @@
                         $lowColumn.append($article);
 
                         // set article height
-                        if ($plugin.options.heightDivisor > 1) {
-                            $plugin._setArticleHeight($article);
+                        if (self.options.heightDivisor > 1) {
+                            self._setArticleHeight($article);
                         }
 
                         // store columnHeight into data
@@ -231,15 +217,15 @@
                 if ( count+1 === $articles.length ) {
 
                     // show article if they are hidden by default
-                    if ( $plugin.cashed.element.css('visibility') === 'hidden' ) {
-                        $plugin.cashed.element.css('visibility', 'visible');
+                    if ( self.cashed.element.css('visibility') === 'hidden' ) {
+                        self.cashed.element.css('visibility', 'visible');
                     }
 
                     // ENABLE TOWER / CITY DISPLAY
-                    if ( $plugin.options.display ) {
-                        if ( $plugin.options.display === 'tower' ) {
+                    if ( self.options.display ) {
+                        if ( self.options.display === 'tower' ) {
                             $container.addClass('tower');
-                        } else if ( $plugin.options.display === 'city' ) {
+                        } else if ( self.options.display === 'city' ) {
                             $container.addClass('city');
                         }
                     }
@@ -265,11 +251,11 @@
         Change just articles height
         */
         _resizeArticles: function() {
-            var $plugin = this; // well I don't like this very much, but we need to change context, right?
+            var self = this;
 
             // Loop articles and set them height
-            $.each($plugin.cashed.articles, function() {
-                $plugin._setArticleHeight($(this));
+            $.each(this.cashed.articles, function() {
+                self._setArticleHeight($(this));
             });
         }
     };

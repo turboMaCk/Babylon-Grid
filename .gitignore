@@ -1,7 +1,4 @@
-config.rb
-*.sublime-project
-*.sublime-workspace
 .sass-cache
-demo.scss
-_resets.scss
-config.codekit
+node_modules
+bower_components
+.tmp

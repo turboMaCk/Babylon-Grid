@@ -9,61 +9,48 @@
  *  Start with container class container-{ number of columns };
  *  Set columns by class columns-{ column number } and set them width
  */
-/* line 17, ../sass/jquery.babylongrid.scss */
 .babylongrid-container .column {
   position: relative;
   display: inline;
   float: left;
 }
-/* line 25, ../sass/jquery.babylongrid.scss */
 .babylongrid-container.container-4 .column-1, .babylongrid-container.container-4 .column-3 {
   width: 30%;
 }
-/* line 28, ../sass/jquery.babylongrid.scss */
 .babylongrid-container.container-4 .column-2, .babylongrid-container.container-4 .column-4 {
   width: 20%;
 }
-/* line 35, ../sass/jquery.babylongrid.scss */
 .babylongrid-container.container-3 .column-1, .babylongrid-container.container-3 .column-2 {
   width: 35%;
 }
-/* line 38, ../sass/jquery.babylongrid.scss */
 .babylongrid-container.container-3 .column-3 {
   width: 30%;
 }
-/* line 45, ../sass/jquery.babylongrid.scss */
 .babylongrid-container.container-2 .column-1 {
   width: 60%;
 }
-/* line 48, ../sass/jquery.babylongrid.scss */
 .babylongrid-container.container-2 .column-2 {
   width: 40%;
 }
-/* line 55, ../sass/jquery.babylongrid.scss */
 .babylongrid-container.container-1 .column-1 {
   width: 100%;
 }
-/* line 61, ../sass/jquery.babylongrid.scss */
 .babylongrid-container:after, .babylongrid-container:before {
   content: '';
   display: table;
   height: 0;
   clear: both;
 }
-/* line 71, ../sass/jquery.babylongrid.scss */
 .babylongrid-container.tower .column {
   vertical-align: bottom;
 }
-/* line 79, ../sass/jquery.babylongrid.scss */
 .babylongrid-container.city .column {
   vertical-align: middle;
 }
 
-/* line 86, ../sass/jquery.babylongrid.scss */
 .babylongrid-container.tower, .babylongrid-container.city {
   display: table;
 }
-/* line 88, ../sass/jquery.babylongrid.scss */
 .babylongrid-container.tower .column, .babylongrid-container.city .column {
   display: table-cell;
   float: none;

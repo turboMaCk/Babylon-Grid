@@ -1,0 +1,353 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,300italic,400italic);
+@import url(http://fonts.googleapis.com/css?family=Arizonia);
+/*
+ *  Stylesheets of Babylom Demo Page
+ *  This file is using Compass
+ */
+/* line 12, ../sass/_resets.scss */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* line 22, ../sass/_resets.scss */
+body {
+  line-height: 1;
+}
+
+/* line 27, ../sass/_resets.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 31, ../sass/_resets.scss */
+nav ul {
+  list-style: none;
+}
+
+/* line 35, ../sass/_resets.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 40, ../sass/_resets.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 45, ../sass/_resets.scss */
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* change colours to suit your needs */
+/* line 54, ../sass/_resets.scss */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+/* line 61, ../sass/_resets.scss */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* line 68, ../sass/_resets.scss */
+del {
+  text-decoration: line-through;
+}
+
+/* line 72, ../sass/_resets.scss */
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+/* line 77, ../sass/_resets.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+/* line 83, ../sass/_resets.scss */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/* line 92, ../sass/_resets.scss */
+input, select {
+  vertical-align: middle;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.eot");
+  src: url("../fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf") format("truetype"), url("../fonts/icomoon.woff") format("woff"), url("../fonts/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 32, ../sass/demo.scss */
+body {
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5em;
+  color: #99301c;
+  background: #f0e5ce;
+}
+
+/* line 40, ../sass/demo.scss */
+pre {
+  display: block;
+}
+
+/* line 44, ../sass/demo.scss */
+a {
+  color: #44bbee;
+  text-decoration: none;
+}
+
+/* line 49, ../sass/demo.scss */
+header {
+  height: 260px;
+  background: url(../images/header.jpg) no-repeat 50% 0 #39cbea;
+  border-bottom: 5px solid #99301c;
+}
+
+/* line 55, ../sass/demo.scss */
+footer {
+  height: 70px;
+  color: white;
+  background: #99301c;
+  text-align: center;
+  padding-top: 30px;
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* line 65, ../sass/demo.scss */
+h1 {
+  text-align: center;
+  padding-top: 120px;
+  font-size: 8em;
+  text-shadow: 1px 1px 0 #f0e5ce;
+  font-family: 'Arizonia', cursive;
+  font-weight: 400;
+}
+
+/* line 74, ../sass/demo.scss */
+.container {
+  position: relative;
+  max-width: 1200px;
+  min-width: 400px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* line 82, ../sass/demo.scss */
+h2 {
+  font-size: 2.5em;
+  line-height: 1.5em;
+  margin: 10px;
+  padding-top: 50px;
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* line 91, ../sass/demo.scss */
+article {
+  background: #fff;
+  -webkit-border-radius: 2px 2px;
+  -moz-border-radius: 2px / 2px;
+  border-radius: 2px / 2px;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  margin: 20px 10px;
+  overflow: hidden;
+}
+/* line 97, ../sass/demo.scss */
+article .title {
+  background: #99301c;
+  color: white;
+  text-align: center;
+  padding: 15px 20px;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  font-weight: 300;
+  font-style: italic;
+  border-bottom: 5px solid #832918;
+}
+/* line 108, ../sass/demo.scss */
+article .desc {
+  padding: 20px;
+  color: #000;
+  font-style: italic;
+}
+/* line 113, ../sass/demo.scss */
+article.donate {
+  background: #99301c;
+}
+/* line 115, ../sass/demo.scss */
+article.donate .desc {
+  color: white;
+  font-size: 1.2em;
+  text-align: center;
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* line 125, ../sass/demo.scss */
+.fixed {
+  min-height: 100px;
+  color: #fff;
+  background: black;
+  margin: 20px;
+}
+
+/* icons */
+/* line 133, ../sass/demo.scss */
+[class*="icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 7em;
+  text-align: center;
+  display: block;
+  margin: 20px 0;
+  color: #99301c;
+  text-shadow: 0 2px 0 #832918;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 153, ../sass/demo.scss */
+.icon-pacman:before {
+  content: "\e600";
+}
+
+/* line 156, ../sass/demo.scss */
+.icon-folder:before {
+  content: "\e603";
+}
+
+/* line 159, ../sass/demo.scss */
+.icon-screen:before {
+  content: "\e606";
+}
+
+/* line 162, ../sass/demo.scss */
+.icon-heart:before {
+  content: "\e609";
+}
+
+/* line 165, ../sass/demo.scss */
+.icon-earth:before {
+  content: "\e60a";
+}
+
+/* line 168, ../sass/demo.scss */
+.icon-cloud-download:before {
+  content: "\e60c";
+}
+
+/* line 171, ../sass/demo.scss */
+.icon-smiley:before {
+  content: "\e60e";
+}
+
+/* line 174, ../sass/demo.scss */
+.icon-info:before {
+  content: "\e610";
+}
+
+/* line 177, ../sass/demo.scss */
+.icon-embed:before {
+  content: "\e611";
+}
+
+/* line 180, ../sass/demo.scss */
+.icon-twitter:before {
+  content: "\e612";
+}
+
+/* line 183, ../sass/demo.scss */
+.icon-chrome:before {
+  content: "\e617";
+}
+
+/* line 186, ../sass/demo.scss */
+.icon-firefox:before {
+  content: "\e618";
+}
+
+/* line 189, ../sass/demo.scss */
+.icon-IE:before {
+  content: "\e619";
+}
+
+/* line 192, ../sass/demo.scss */
+.icon-opera:before {
+  content: "\e61a";
+}
+
+/* line 195, ../sass/demo.scss */
+.icon-safari:before {
+  content: "\e61b";
+}
+
+/* line 198, ../sass/demo.scss */
+.icon-html5:before {
+  content: "\e61c";
+}
+
+/* line 201, ../sass/demo.scss */
+.icon-css3:before {
+  content: "\e601";
+}
+
+@media only screen and (max-width: 920px) {
+  /* line 206, ../sass/demo.scss */
+  h1 {
+    font-size: 5em;
+  }
+}
