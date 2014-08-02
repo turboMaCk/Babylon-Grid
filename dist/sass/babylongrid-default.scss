@@ -1,0 +1,92 @@
+/*
+ *  Project: Babylon Grid sampl SASS/CSS
+ *  Description: Lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent colun width support and few display mods.
+ *  Author: Marek Fajkus @turbo_MaCk (http://marekrocks.it)
+ *  License: MIT
+ */
+
+/*
+ *  HOW TO:
+ *  Start with container class container-{ number of columns };
+ *  Set columns by class columns-{ column number } and set them width
+ */
+
+.babylongrid-container {
+
+    // Basic columns style
+    .column {
+        position: relative;
+        display: inline;
+        float: left;
+    }
+
+    // For columns layout
+    &.container-4 {
+        .column-1, .column-3 {
+            width: 30%;
+        }
+        .column-2, .column-4 {
+            width: 20%;
+        }
+    }
+
+    // Three columns layout
+    &.container-3 {
+        .column-1, .column-2 {
+            width: 35%;
+        }
+        .column-3 {
+            width: 30%;
+        }
+    }
+
+    // Two columns layout
+    &.container-2 {
+        .column-1 {
+            width: 60%;
+        }
+        .column-2 {
+            width: 40%;
+        }
+    }
+
+    // One columns layout
+    &.container-1 {
+        .column-1 {
+            width: 100%;
+        }
+    }
+
+    // Clear fixes
+    &:after, &:before {
+        content: '';
+        display: table;
+        height: 0;
+        clear: both;
+    }
+
+    // Tower Display
+    &.tower {
+        @extend %table-display;
+        .column {
+            vertical-align: bottom;
+        }
+    }
+
+    // City Display
+    &.city {
+        @extend %table-display;
+        .column {
+            vertical-align: middle;
+        }
+    }
+}
+
+// Babylon Displays
+%table-display {
+    display: table;
+    .column {
+        display: table-cell;
+        float: none;
+    }
+}
