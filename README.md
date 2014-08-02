@@ -154,7 +154,7 @@ Plugin itself test if container element is hidden a set it to visible right afte
 ## TODO
 
 * [ ] Add bower support
-* [x] Separate `source` adn `distributions/builds`
+* [x] Separate `source` and `distributions/builds`
 * [x] Automate tasks with `grunt`, `gulp` or `broccoli`
 
 ## Licence
