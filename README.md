@@ -1,7 +1,7 @@
 Babylon Grid
 ============
 
-Babylon Grid is lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent column width support and few display mods. And it's faster than you ever think!
+Babylon Grid is lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent column width support, few display mods and AJAX support. And it's faster than you ever think!
 
 *[Test demo](http://babylongrid.marekrocks.it)*
 
@@ -125,6 +125,22 @@ fire `babylongrid:resize` event on element
 
     $('#babylongrid').trigger('babylongrid:resize')
 
+## Ajax support
+
+add new content to element where grid was initialized and trigger `babylongrid:load` event on this element.
+
+    // init grid
+    $('#babylongrid').babylongrid();
+
+    // add new load new content
+    // This should be done in AJAX callback
+    $('#babylongrid').append('<article>Hello, I'm new here</atricle>');
+
+    // trigger event to load new article to grid
+    // This should also be done in AJAX callback right after new element is added to DOM
+    $('#babylongrid').trigger('babylongrid:load');
+
+
 ## Other parameters
 
 * `firstToRight:` true/false, // default: false; move first article to last column
@@ -152,7 +168,7 @@ Plugin itself test if container element is hidden a set it to visible right afte
 * [x] Add bower support
 * [x] Separate `source` and `distributions/builds`
 * [x] Automate tasks with `grunt`, `gulp` or `broccoli`
-* [ ] Ajax support (for infinit scroll)
+* [x] Ajax support (for infinit scroll)
 
 ## Licence
 MIT

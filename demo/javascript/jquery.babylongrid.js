@@ -1,6 +1,6 @@
 /*
  *  Project: Babylon Grid
- *  Version: 2.0
+ *  Version: 2.1
  *  Description: Lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent colun width support and few display mods.
  *  Author: Marek Fajkus @turbo_MaCk (http://marekrocks.it)
  *  License: MIT
@@ -56,8 +56,8 @@
             // Inner wrap element with grid container
             $(this.element).wrapInner('<div class="babylongrid-container" />');
 
-            // Cashe Elements
-            this.casheElements();
+            // Cache Elements
+            this.cacheElements();
 
             // Start plugin on load
             this._setGrid();
@@ -70,16 +70,33 @@
             $(this.element).on('babylongrid:resize', function() {
                 self._setGrid();
             });
+
+            $(this.element).on('babylongrid:load', function() {
+                self._loadNewArticles();
+            });
         },
         /*
-        Cash elements
+         Load New articles
+         */
+        _loadNewArticles: function() {
+            var self = this;
+            var newArticles = $(this.element).children().not('.babylongrid-container');
+
+            newArticles.each(function() {
+                self.cached.articles.push(this);
+            });
+
+            self._setColumns(self.__currentColumns);
+        },
+        /*
+        Cache elements
         */
-        casheElements: function() {
+        cacheElements: function() {
             var $element = $(this.element),
                 $container = $element.children('.babylongrid-container'),
                 $articles = $container.children();
 
-            this.cashed = {
+            this.cached = {
                 'element': $element,
                 'container': $container,
                 'articles': $articles
@@ -89,7 +106,7 @@
         Set Grid
         */
         _setGrid: function() {
-            var $container = this.cashed.container,
+            var $container = this.cached.container,
                 containerWidth = $container.width(),
                 containerClass,
                 columns,
@@ -102,7 +119,7 @@
                     columns = this.columns;
                     containerClass = 'container-' + columns;
 
-                    // check if container have to change class
+                    // check if container's class has to be change changed
                     if ( !$container.hasClass(containerClass) ) {
 
                         // reset container classes
@@ -110,6 +127,9 @@
                             .removeClass()
                             .addClass('babylongrid-container')
                             .addClass(containerClass);
+
+                        // store current columns
+                        self.__currentColumns = columns;
 
                         // time to set columns
                         self._setColumns(columns);
@@ -126,7 +146,7 @@
         Set Columns
         */
         _setColumns: function(columns) {
-            var $container = this.cashed.container,
+            var $container = this.cached.container,
                 column;
 
             // remove old columns
@@ -150,9 +170,9 @@
         Organize Articles
         */
         _organizeArticles: function(columns) {
-            var $articles = this.cashed.articles,
+            var $articles = this.cached.articles,
                 $article,
-                $container = this.cashed.container,
+                $container = this.cached.container,
                 $columns = $container.children('.column'),
                 minColumnHeight = $columns.data('height') + 1,
                 $lowColumn,
@@ -217,8 +237,8 @@
                 if ( count+1 === $articles.length ) {
 
                     // show article if they are hidden by default
-                    if ( self.cashed.element.css('visibility') === 'hidden' ) {
-                        self.cashed.element.css('visibility', 'visible');
+                    if ( self.cached.element.css('visibility') === 'hidden' ) {
+                        self.cached.element.css('visibility', 'visible');
                     }
 
                     // ENABLE TOWER / CITY DISPLAY
@@ -254,7 +274,7 @@
             var self = this;
 
             // Loop articles and set them height
-            $.each(this.cashed.articles, function() {
+            $.each(this.cached.articles, function() {
                 self._setArticleHeight($(this));
             });
         }
