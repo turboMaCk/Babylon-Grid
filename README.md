@@ -5,10 +5,6 @@ Babylon Grid is lightweight jQuery + CSS plugin for creating responsive, dynamic
 
 *[Test demo](http://babylongrid.marekrocks.it)*
 
-*[Test plugin functionality on CODEPEN](http://codepen.io/turbo_MaCk/full/GazmK)*
-
-*You can donate this plugin via paypall if you like it. (marek.faj@gmail.com)*
-
 ## Instalation
 
 Best way to install this plugin is using **Borwer** 
@@ -153,9 +149,10 @@ Plugin itself test if container element is hidden a set it to visible right afte
 
 ## TODO
 
-* [ ] Add bower support
+* [x] Add bower support
 * [x] Separate `source` and `distributions/builds`
 * [x] Automate tasks with `grunt`, `gulp` or `broccoli`
+* [ ] Ajax support (for infinit scroll)
 
 ## Licence
 MIT
