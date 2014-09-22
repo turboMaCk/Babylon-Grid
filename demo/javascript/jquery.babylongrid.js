@@ -70,6 +70,18 @@
             $(this.element).on('babylongrid:resize', function() {
                 self._setGrid();
             });
+
+            $(this.element).on('babylongrid:load', function() {
+                self._cacheNewArticles();
+            });
+        },
+        /*
+         Destroy
+         */
+        _cacheNewArticles: function() {
+            var content = $(this.element).children().not(this.cached.container);
+
+            console.log(content);
         },
         /*
         Cash elements
