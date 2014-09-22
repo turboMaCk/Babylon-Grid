@@ -1,6 +1,6 @@
 /*
  *  Project: Babylon Grid
- *  Version: 2.0
+ *  Version: 2.1
  *  Description: Lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent colun width support and few display mods.
  *  Author: Marek Fajkus @turbo_MaCk (http://marekrocks.it)
  *  License: MIT
