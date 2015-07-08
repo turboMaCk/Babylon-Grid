@@ -1,16 +1,19 @@
 Babylon Grid
 ============
 
-Babylon Grid is lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent column width support and few display mods. And it's faster than you ever think!
+Babylon Grid is lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent column width support, few display mods and AJAX support. And it's faster than you ever think!
 
 *[Test demo](http://babylongrid.marekrocks.it)*
 
-*[Test plugin functionality on CODEPEN](http://codepen.io/turbo_MaCk/full/GazmK)*
+## Instalation
 
-*You can donate this plugin via paypall if you like it. (marek.faj@gmail.com)*
+Best way to install this plugin is using **Borwer** 
+
+    $ bower install babylon-grid --save
 
 ## Usage
 
+**You'll find all production ready files in dist/ folder**
 
 Include jQuery
 
@@ -23,13 +26,13 @@ Include plugin
 
 Include plugin CSS:
 
-    <link rel="stylesheet" href="css/jquery.babylongrid.css">
+    <link rel="stylesheet" href="css/babylongrid-default.css">
 
-Or import plugin SCSS to your Sass:
+Or import plugin SCSS to your sass files:
 
-    @import "jquery.babylongrid";
+    @import "sass/babylongrid-default";
 
-Apply plugin method for your container element with articles inside.
+Init plugin on element:
 
     <div id="babylongrid">
         <article>
@@ -74,7 +77,7 @@ You can set custom scheme throught `scheme` parameter start from largest screen 
                ]
     });
 
-And define columns sizes for every sheme using SASS or CSS (example in SCSS):
+And define columns sizes for every scheme using SASS or CSS (example in SCSS) *unecessary if you're using default styles without custom grind configuration*:
 
      .babylongrid-container {
 
@@ -122,6 +125,22 @@ fire `babylongrid:resize` event on element
 
     $('#babylongrid').trigger('babylongrid:resize')
 
+## Ajax support
+
+add new content to element where grid was initialized and trigger `babylongrid:load` event on this element.
+
+    // init grid
+    $('#babylongrid').babylongrid();
+
+    // add new load new content
+    // This should be done in AJAX callback
+    $('#babylongrid').append('<article>Hello, I'm new here</atricle>');
+
+    // trigger event to load new article to grid
+    // This should also be done in AJAX callback right after new element is added to DOM
+    $('#babylongrid').trigger('babylongrid:load');
+
+
 ## Other parameters
 
 * `firstToRight:` true/false, // default: false; move first article to last column
@@ -130,7 +149,7 @@ fire `babylongrid:resize` event on element
 
 ## Uniform Grid Generator
 
-Simple component that allow you quickly generate Babylon Grid's css for your custom grid scheme using Sass (Scss syntax).
+Simple component that allow you quickly generate Babylon Grid's css for your custom grid scheme using SASS.
 
 * Open `sass/_uniformgrid.generator.scss`
 * Edit `$scheme` variable => each value is number of columns in each scheme
@@ -138,17 +157,18 @@ Simple component that allow you quickly generate Babylon Grid's css for your cus
 
 ## Optimalization
 
-It's important to load all images before initializing plugin (images sizes have effect on article height).
+**It's important to load all images before initializing plugin (images sizes have effect on article height).**
 To prevent page skiping from default layout to Babylon's you can set container element to `visibility: hidden;` in your CSS.
 Plugin itself test if container element is hidden a set it to visible right after whole layout is ternatively you can init plugin on page load and then force redrawing on instace via event. See
 
-**Alternatively you can init plugin on page load and then force redrawing on instace via event. See above Force redraw grid.**
+**Alternatively you can init plugin on page load and then force redrawing on instace via event. See above `Force redraw grid`.**
 
 ## TODO
 
-* [ ] Add bower support
-* [ ] Separate `source` adn `distributions/builds`
-* [ ] Automate tasks with `grunt`, `gulp` or `brokoli`
+* [x] Add bower support
+* [x] Separate `source` and `distributions/builds`
+* [x] Automate tasks with `grunt`, `gulp` or `broccoli`
+* [x] Ajax support (for infinit scroll)
 
 ## Licence
 MIT

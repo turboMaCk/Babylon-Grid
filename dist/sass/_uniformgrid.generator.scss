@@ -1,0 +1,54 @@
+// Uniform (all columns with same width) Grid generator for Babylon Grid
+
+$scheme: (4,3,2,1);
+
+.babylongrid-container {
+
+	@each $grid in $scheme {
+		&.container-#{$grid} {
+			.column {
+				width: 100%/$grid;
+			}
+		}
+	}
+
+	// Basic columns style
+	.column {
+	    position: relative;
+	    display: inline;
+	    float: left;
+	}
+
+	// Clear fixes
+	&:after, &:before {
+	    content: '';
+	    display: table;
+	    height: 0;
+	    clear: both;
+	}
+
+	// Tower Display
+	&.tower {
+	    @extend %table-display;
+	    .column {
+	        vertical-align: bottom;
+	    }
+	}
+
+	// City Display
+	&.city {
+	    @extend %table-display;
+	    .column {
+	        vertical-align: middle;
+	    }
+	}
+}
+
+// Babylon Displays
+%table-display {
+    display: table;
+    .column {
+        display: table-cell;
+        float: none;
+    }
+}
