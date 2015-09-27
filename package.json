@@ -1,6 +1,6 @@
 {
   "name": "Babylon-Grid",
-  "version": "2.2",
+  "version": "2.2.0",
   "description": "Lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent column width support and vertical-align option.",
   "main": "src/jquery.babylongrid.js",
   "scripts": {

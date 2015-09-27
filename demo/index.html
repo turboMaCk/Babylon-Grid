@@ -554,7 +554,10 @@
 							minWidth: 0,
 							columns: 1
 						}
-					]
+					],
+					afterRender: function() {
+						console.log('rendered');
+					}
 				});
 
 				$('#babylongrid3').babylongrid({
