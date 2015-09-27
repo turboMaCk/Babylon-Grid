@@ -56,7 +56,7 @@ Init plugin on element:
         },(jQuery));
     </script>
 
-## Setting schme
+## Setting scheme
 
 You can set custom scheme throught `scheme` parameter start from largest screen to smallest one.
 
