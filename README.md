@@ -146,6 +146,7 @@ add new content to element where grid was initialized and trigger `babylongrid:l
 * `firstToRight:` true/false, // default: false; move first article to last column
 * `display:` 'tower'/'city', // default: null; Set vertical align to bottom or center
 * `heightDivisor:` [number], // default: 50; Article height divisor. For disable set 1;
+* `afterRender`: function, // callback after rendering is done
 
 ## Uniform Grid Generator
 
