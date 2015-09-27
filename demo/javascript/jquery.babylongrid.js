@@ -32,6 +32,7 @@
                 display: null,
                 firstToRight: false,
                 heightDivisor: 25,
+                afterRender: null
             };
 
     // The actual plugin constructor
@@ -141,6 +142,9 @@
                 }
             });
 
+            if (this.options.afterRender) {
+                this.options.afterRender();
+            }
         },
         /*
         Set Columns
@@ -289,5 +293,4 @@
             }
         });
     };
-
 }(jQuery, window));
