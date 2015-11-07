@@ -3,11 +3,9 @@ Babylon Grid
 
 Babylon Grid is lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent column width support, few display mods and AJAX support. And it's faster than you ever think!
 
-*[Test demo](http://babylongrid.marekrocks.it)*
-
 ## Instalation
 
-Best way to install this plugin is using **Borwer** 
+Best way to install this plugin is using **Bower**
 
     $ bower install babylon-grid --save
 
@@ -137,9 +135,21 @@ add new content to element where grid was initialized and trigger `babylongrid:l
     $('#babylongrid').append('<article>Hello, I'm new here</atricle>');
 
     // trigger event to load new article to grid
-    // This should also be done in AJAX callback right after new element is added to DOM
+    // This should also be done in AJAX callback right after new elements are added to DOM
     $('#babylongrid').trigger('babylongrid:load');
 
+or replace content by triggerigng `babylongrid:reload` event on element.
+
+    // init grid
+    $('#babylongrid').babylongrid();
+
+    // add new load new content
+    // This should be done in AJAX callback
+    $('#babylongrid').append('<article>Hello, I'm new here</atricle>');
+
+    // trigger event to load new article to grid
+    // This should also be done in AJAX callback right after new elements are added to DOM
+    $('#babylongrid').trigger('babylongrid:reload');
 
 ## Other parameters
 
@@ -155,6 +165,12 @@ Simple component that allow you quickly generate Babylon Grid's css for your cus
 * Open `sass/_uniformgrid.generator.scss`
 * Edit `$scheme` variable => each value is number of columns in each scheme
 * Use Sass `@import 'uniformgrid.generator' or compilate SCSS straight to CSS
+
+## Destructor
+There is basic destructor of plugin instances.
+```
+$('#babylongrid').trigger('destroy');
+```
 
 ## Optimalization
 
