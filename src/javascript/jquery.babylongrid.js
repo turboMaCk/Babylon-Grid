@@ -53,6 +53,7 @@
 
             // Store this in var for changing context
             var self = this;
+            this._InnerHtmlbackup = $(this.element).html();
 
             // Inner wrap element with grid container
             $(this.element).wrapInner('<div class="babylongrid-container" />');
@@ -74,6 +75,14 @@
 
             $(this.element).on('babylongrid:load', function() {
                 self._loadNewArticles();
+            });
+
+            $(this.element).on('babylongrid:reload', function() {
+                self._overload();
+            });
+
+            $(this.element).on('babylongrid:destroy', function() {
+                self._destroy();
             });
         },
         /*
@@ -281,6 +290,28 @@
             $.each(this.cached.articles, function() {
                 self._setArticleHeight($(this));
             });
+        },
+        /*
+        reset whole grid
+        */
+        _overload: function() {
+            this.cached.articles = [];
+            $(this.element).html('');
+            this._loadNewArticles();
+        },
+        /*
+        Destroy instance
+        */
+        _destroy: function() {
+            $(this.element)
+                .off('babylongrid:load')
+                .off('babylongrid:resize')
+                .off('babylongrid:reset')
+                .off('babylongrid:destroy');
+
+            $(this.element).html(this._InnerHtmlbackup);
+
+            $(this).removeData('babylongrid');
         }
     };
 
