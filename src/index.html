@@ -24,7 +24,7 @@
 			<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 		<![endif]-->
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/embed.js/3.6.2/embed.min.css"/>
 		<link rel="stylesheet" href="stylesheets/babylongrid-default.css">
 		<link rel="stylesheet" href="stylesheets/demo.css">
 	</head>
@@ -33,6 +33,93 @@
 			<h1>Babylon Grid</h1>
 		</header>
 		<div class="container">
+
+			<h2>EmbededJS content</h2>
+			<div id="ejs-grid">
+				<article class="categoria">
+					<div class="categoriaheader">
+						<div class="avatar">
+							<img alt="" src="http://lorempixel.com/100/100/people/9/">
+						</div>
+					</div>
+					<div class="descrizione">
+						<h1>Titolo</h1>
+						<p class='embed'>
+							https://www.youtube.com/watch?v=mk48xRzuNvA
+						</p>
+					</div>
+				</article>
+
+				<article class="categoria">
+					<div class="categoriaheader">
+						<div class="avatar">
+							<img alt="" src="http://lorempixel.com/100/100/people/9/">
+						</div>
+					</div>
+					<div class="descrizione">
+						<h1>Titolo</h1>
+						<p class='embed'>
+							https://www.youtube.com/watch?v=mk48xRzuNvA
+						</p>
+					</div>
+				</article>
+
+				<article class="categoria">
+					<div class="categoriaheader">
+						<div class="avatar">
+							<img alt="" src="http://lorempixel.com/100/100/people/9/">
+						</div>
+					</div>
+					<div class="descrizione" >
+						<h1>Titolo</h1>
+						<p class='embed'>
+							https://www.youtube.com/watch?v=mk48xRzuNvA
+						</p>
+					</div>
+				</article>
+
+				<article class="categoria">
+					<div class="categoriaheader">
+						<div class="avatar">
+							<img alt="" src="http://lorempixel.com/100/100/people/9/">
+						</div>
+					</div>
+					<div class="descrizione" >
+						<h1>Titolo</h1>
+						<p class='embed'>
+							http://games.hdblog.it/2016/01/17/Elite-Dangerous-requisiti-minimi-visori-VR/
+						</p>
+					</div>
+				</article>
+
+				<article class="categoria">
+					<div class="categoriaheader">
+						<div class="avatar">
+							<img alt="" src="http://lorempixel.com/100/100/people/9/">
+						</div>
+					</div>
+					<div class="descrizione">
+						<h1>Titolo</h1>
+						<p class='embed'>
+							http://samsung.hdblog.it/2016/01/17/Galaxy-S7-e-Galaxy-S7-Edge-certificati-Indonesia/
+						</p>
+					</div>
+				</article>
+				<article class="categoria">
+					<div class="categoriaheader">
+						<div class="avatar">
+							<img alt="" src="http://lorempixel.com/100/100/people/9/">
+						</div>
+					</div>
+					<div class="descrizione">
+						<h1>Titolo</h1>
+						<p class='embed'>
+							http://samsung.hdblog.it/2016/01/17/Galaxy-S7-e-Galaxy-S7-Edge-certificati-Indonesia/
+						</p>
+					</div>
+				</article>
+			</div>
+
 			<h2>With first article on right! Cool for navigation, right?</h2>
 			<div id="babylongrid">
 				<article class="donate">
@@ -532,8 +619,36 @@
 		</footer>
 		<script src="javascript/jquery.min.js" ></script>
 		<script src="javascript/jquery.babylongrid.js"></script>
+		<script src="https://cdn.jsdelivr.net/embed.js/3.6.2/embed.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+		<script src="https://platform.twitter.com/widgets.js"></script>
 		<script>
 			(function($){
+				var $grid = $('#ejs-grid');
+
+				function setupEmbeded() {
+					ejs.setOptions({
+						inlineEmbed: "all",
+						googleAuthKey : "AIzaSyCqFouT8h5DKAbxlrTZmjXEmNBjC69f0ts",
+						tweetsEmbed: true,
+						highlightCode: true,
+						openGraphEndpoint: "https://opengraph.io/api/1.0/site/${url}",
+						onOpenGraphFetch: function (data) {
+							console.log(data);
+							data.hybridGraph.success = data.error ?  false : true;
+							return data.hybridGraph;
+						},
+						openGraphExclude:["youtube", "vimeo"]
+					});
+					ejs.applyEmbedJS(".embed");
+
+					// EmbedJS missing callback api
+					// this is hack using fixed timeout instead of proper async callback/promise
+					window.setTimeout(function() {
+						$grid.babylongrid()
+					}, 1500);
+				}
+				setupEmbeded();
 
 				$('#babylongrid').babylongrid({
 					firstToRight: true
