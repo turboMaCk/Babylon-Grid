@@ -3,6 +3,8 @@ Babylon Grid
 
 Babylon Grid is lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent column width support, few display mods and AJAX support. And it's faster than you ever think!
 
+DEMO: http://turbomack.github.io/Babylon-Grid/
+
 ## Instalation
 
 Best way to install this plugin is using **Bower**
@@ -179,13 +181,6 @@ To prevent page skiping from default layout to Babylon's you can set container e
 Plugin itself test if container element is hidden a set it to visible right after whole layout is ternatively you can init plugin on page load and then force redrawing on instace via event. See
 
 **Alternatively you can init plugin on page load and then force redrawing on instace via event. See above `Force redraw grid`.**
-
-## TODO
-
-* [x] Add bower support
-* [x] Separate `source` and `distributions/builds`
-* [x] Automate tasks with `grunt`, `gulp` or `broccoli`
-* [x] Ajax support (for infinit scroll)
 
 ## Licence
 MIT
