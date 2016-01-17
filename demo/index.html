@@ -35,7 +35,9 @@
 		<div class="container">
 
 			<h2>EmbededJS content</h2>
-			<div id="ejs-grid">
+			<div id="ejs-grid"></div>
+
+			<div id="embed-container" style="display:none">
 				<article class="categoria">
 					<div class="categoriaheader">
 						<div class="avatar">
@@ -624,7 +626,26 @@
 		<script src="https://platform.twitter.com/widgets.js"></script>
 		<script>
 			(function($){
+				////// starts
+
 				var $grid = $('#ejs-grid');
+				var $helper = $('#embed-container');
+
+				$grid.babylongrid();
+
+				function resetGrid () {
+					console.log('reset');
+					console.log($helper.length);
+					$helper.find('.ejs-embed').parents('article').each(function () {
+						window.setTimeout(function() {
+							var $article = $(this).clone()
+							$grid
+							    .append($article)
+								.trigger('babylongrid:load');
+							$article.remove();
+						}.bind(this), 500);
+					});
+				}
 
 				function setupEmbeded() {
 					ejs.setOptions({
@@ -638,17 +659,18 @@
 							data.hybridGraph.success = data.error ?  false : true;
 							return data.hybridGraph;
 						},
-						openGraphExclude:["youtube", "vimeo"]
+						openGraphExclude:["youtube", "vimeo"],
+						afterEmbedJSApply: resetGrid
 					});
+
 					ejs.applyEmbedJS(".embed");
 
 					// EmbedJS missing callback api
 					// this is hack using fixed timeout instead of proper async callback/promise
-					window.setTimeout(function() {
-						$grid.babylongrid()
-					}, 1500);
 				}
 				setupEmbeded();
+
+				/////// ends
 
 				$('#babylongrid').babylongrid({
 					firstToRight: true
