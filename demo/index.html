@@ -24,7 +24,7 @@
 			<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 		<![endif]-->
-
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/embed.js/3.6.2/embed.min.css"/>
 		<link rel="stylesheet" href="stylesheets/babylongrid-default.css">
 		<link rel="stylesheet" href="stylesheets/demo.css">
 	</head>
@@ -33,6 +33,28 @@
 			<h1>Babylon Grid</h1>
 		</header>
 		<div class="container">
+
+			<h2>EmbededJS content</h2>
+			<div id="ejs-grid">
+				<article class="categoria">
+					<img alt="" src="http://lorempixel.com/100/400/people/9/">
+				</article>
+				<article class="categoria">
+					<img alt="" src="http://lorempixel.com/100/400/people/9/">
+				</article>
+				<article class="categoria">
+					<img alt="" src="http://lorempixel.com/100/400/people/9/">
+				</article>
+				<article class="categoria">
+					<img alt="" src="http://lorempixel.com/100/400/people/9/">
+				</article>
+				<article class="categoria">
+					<img alt="" src="http://lorempixel.com/100/400/people/9/">
+				</article>
+				<article class="categoria">
+					<img alt="" src="http://lorempixel.com/100/400/people/9/">
+				</article>
+			</div>
 			<h2>With first article on right! Cool for navigation, right?</h2>
 			<div id="babylongrid">
 				<article class="donate">
@@ -532,12 +554,20 @@
 		</footer>
 		<script src="javascript/jquery.min.js" ></script>
 		<script src="javascript/jquery.babylongrid.js"></script>
+		<script src="https://cdn.jsdelivr.net/embed.js/3.6.2/embed.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+		<script src="https://platform.twitter.com/widgets.js"></script>
 		<script>
 			(function($){
+				var $grid = $('#ejs-grid');
 
-				$('#babylongrid').babylongrid({
-					firstToRight: true
-				});
+				function resetGrid () {
+					$grid.trigger('babylongrid:resize');
+				}
+
+				$grid.babylongrid();
+
+				$grid.find('img').load(resetGrid);
 
 				$('#babylongrid2').babylongrid({
 					scheme: [
