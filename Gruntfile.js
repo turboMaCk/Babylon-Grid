@@ -85,6 +85,14 @@ module.exports = function(grunt) {
 					dest: 'demo'
 				}]
 			},
+			'gh-pages': {
+				files: [{
+					expand: true,
+					cwd: 'demo',
+					src: '**/*',
+					dest: '.'
+				}]
+			},
 			dist: {
 				files: [{
 					expand: true,
@@ -158,5 +166,6 @@ module.exports = function(grunt) {
 	// dist tasks
 	grunt.registerTask('demo', ['dev', 'copy:demo']);
 	grunt.registerTask('build', ['demo', 'copy:dist', 'uglify:dist', 'sass:dist']);
+	grunt.registerTask('gh-pages', ['demo', 'copy:gh-pages']);
 	grunt.registerTask('default', ['dist']);
 };
