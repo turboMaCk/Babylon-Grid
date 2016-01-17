@@ -1,0 +1,573 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en">
+<![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang="en">
+<![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en">
+<![endif]-->
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Babylon Grid is lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent column width support and few display mods. And it's faster than you ever think!">
+		<meta name="author" content="Marek Fajkus">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="HandheldFriendly" content="true">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="icon" href="images/favicon.ico">
+
+		<title>Babylon Grid (demo)</title>
+
+		<!--[if lt IE 9]>
+			<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+		<![endif]-->
+
+		<link rel="stylesheet" href="stylesheets/babylongrid-default.css">
+		<link rel="stylesheet" href="stylesheets/demo.css">
+	</head>
+	<body>
+		<header>
+			<h1>Babylon Grid</h1>
+		</header>
+		<div class="container">
+			<h2>With first article on right! Cool for navigation, right?</h2>
+			<div id="babylongrid">
+				<article class="donate">
+					<div class="desc">
+						Buy me a beer:<br><br>
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+						<input type="hidden" name="cmd" value="_s-xclick">
+						<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+						">
+						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+						</form>
+
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Info</div>
+					<span class="icon-info"></span>
+					<div class="desc">
+						Babylon Grid is lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent column width support and few display mods. And it's faster than you ever think!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Code</div>
+					<span class="icon-embed"></span>
+					<div class="desc">
+						JavaScript is setting up column grid and organize articles. Whole layout is define in CSS so it's pretty fast and easy customizable.
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Download!</div>
+					<a href="#" class="icon-cloud-download"></a>
+					<div class="desc">
+						Download if from <a href="https://github.com/turboMaCk/Babylon-Grid">GitHub</a>
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Responsive</div>
+					<span class="icon-screen"></span>
+					<div class="desc">
+						It's 100% responsive! Try resize your browser window.
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">HTML5</div>
+					<span class="icon-html5"></span>
+					<div class="desc">
+						We all love HTML5, right? But it's also xHTML compatible;-)
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">CSS</div>
+					<span class="icon-css3"></span>
+					<div class="desc">
+						Layout made with CSS or SASS!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Follow me on twitter</div>
+					<a href="https://twitter.com/turbo_MaCk" class="icon-twitter"></a>
+					<div class="desc">
+						<a href="https://twitter.com/turbo_MaCk">@turbo_MaCk</a>
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Smile!</div>
+					<span class="icon-smiley"></span>
+					<div class="desc">
+						It's fast & easy to use:-)
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">It doesn't bite!</div>
+					<span class="icon-pacman"></span>
+					<div class="desc">
+						Pac-Man is an arcade game developed by Namco and first released in Japan on May 22, 1980.
+						Source: <a href="http://en.wikipedia.org/wiki/Pac-Man">wikipedia.org</a>
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">IE Compatible</div>
+					<span class="icon-IE"></span>
+					<div class="desc">
+						Yes, it works in Internet Explorer 6+. Display mods 'tower' & 'city' are IE8+ compatible.
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Chrome</div>
+					<span class="icon-chrome"></span>
+					<div class="desc">
+						Chrome loves it!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">FireFox</div>
+					<span class="icon-firefox"></span>
+					<div class="desc">
+						FireFox loves it!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Opera</div>
+					<span class="icon-opera"></span>
+					<div class="desc">
+						Opera loves it!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Safari</div>
+					<span class="icon-safari"></span>
+					<div class="desc">
+						Safari loves it!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Love</div>
+					<span class="icon-heart"></span>
+					<div class="desc">
+						Love will not tear us apart again.
+					</div>
+				</article>
+			</div>
+
+			<h2>Easy setting custom layout:</h2>
+			<div id="babylongrid2">
+				<article class="donate">
+					<div class="desc">
+						Buy me a beer:<br><br>
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+						<input type="hidden" name="cmd" value="_s-xclick">
+						<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+						">
+						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+						</form>
+
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Info</div>
+					<span class="icon-info"></span>
+					<div class="desc">
+						Babylon Grid is lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent column width support and few display mods. And it's faster than you ever think!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Code</div>
+					<span class="icon-embed"></span>
+					<div class="desc">
+						JavaScript is setting up column grid and organize articles. Whole layout is define in CSS so it's pretty fast and easy customizable.
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Download!</div>
+					<a href="#" class="icon-cloud-download"></a>
+					<div class="desc">
+						Download if from <a href="https://github.com/turboMaCk/Babylon-Grid">GitHub</a>
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Responsive</div>
+					<span class="icon-screen"></span>
+					<div class="desc">
+						It's 100% responsive! Try resize your browser window.
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">HTML5</div>
+					<span class="icon-html5"></span>
+					<div class="desc">
+						We all love HTML5, right? But it's also xHTML compatible;-)
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">CSS</div>
+					<span class="icon-css3"></span>
+					<div class="desc">
+						Layout made with CSS or SASS!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Follow me on twitter</div>
+					<a href="https://twitter.com/turbo_MaCk" class="icon-twitter"></a>
+					<div class="desc">
+						<a href="https://twitter.com/turbo_MaCk">@turbo_MaCk</a>
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Smile!</div>
+					<span class="icon-smiley"></span>
+					<div class="desc">
+						It's fast & easy to use:-)
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">It doesn't bite!</div>
+					<span class="icon-pacman"></span>
+					<div class="desc">
+						Pac-Man is an arcade game developed by Namco and first released in Japan on May 22, 1980.
+						Source: <a href="http://en.wikipedia.org/wiki/Pac-Man">wikipedia.org</a>
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">IE Compatible</div>
+					<span class="icon-IE"></span>
+					<div class="desc">
+						Yes, it works in Internet Explorer 6+. Display mods 'tower' & 'city' are IE8+ compatible.
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Chrome</div>
+					<span class="icon-chrome"></span>
+					<div class="desc">
+						Chrome loves it!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">FireFox</div>
+					<span class="icon-firefox"></span>
+					<div class="desc">
+						FireFox loves it!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Opera</div>
+					<span class="icon-opera"></span>
+					<div class="desc">
+						Opera loves it!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Safari</div>
+					<span class="icon-safari"></span>
+					<div class="desc">
+						Safari loves it!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Love</div>
+					<span class="icon-heart"></span>
+					<div class="desc">
+						Love will not tear us apart again.
+					</div>
+				</article>
+			</div>
+
+			<h2>Babylon's Tower Display:</h2>
+			<div id="babylongrid3">
+				<article class="donate">
+					<div class="desc">
+						Buy me a beer:<br><br>
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+						<input type="hidden" name="cmd" value="_s-xclick">
+						<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+						">
+						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+						</form>
+
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Info</div>
+					<span class="icon-info"></span>
+					<div class="desc">
+						Babylon Grid is lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent column width support and few display mods. And it's faster than you ever think!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Code</div>
+					<span class="icon-embed"></span>
+					<div class="desc">
+						JavaScript is setting up column grid and organize articles. Whole layout is define in CSS so it's pretty fast and easy customizable.
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Download!</div>
+					<a href="#" class="icon-cloud-download"></a>
+					<div class="desc">
+						Download if from <a href="https://github.com/turboMaCk/Babylon-Grid">GitHub</a>
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Responsive</div>
+					<span class="icon-screen"></span>
+					<div class="desc">
+						It's 100% responsive! Try resize your browser window.
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">HTML5</div>
+					<span class="icon-html5"></span>
+					<div class="desc">
+						We all love HTML5, right? But it's also xHTML compatible;-)
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">CSS</div>
+					<span class="icon-css3"></span>
+					<div class="desc">
+						Layout made with CSS or SASS!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Follow me on twitter</div>
+					<a href="https://twitter.com/turbo_MaCk" class="icon-twitter"></a>
+					<div class="desc">
+						<a href="https://twitter.com/turbo_MaCk">@turbo_MaCk</a>
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Smile!</div>
+					<span class="icon-smiley"></span>
+					<div class="desc">
+						It's fast & easy to use:-)
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">It doesn't bite!</div>
+					<span class="icon-pacman"></span>
+					<div class="desc">
+						Pac-Man is an arcade game developed by Namco and first released in Japan on May 22, 1980.
+						Source: <a href="http://en.wikipedia.org/wiki/Pac-Man">wikipedia.org</a>
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">IE Compatible</div>
+					<span class="icon-IE"></span>
+					<div class="desc">
+						Yes, it works in Internet Explorer 6+. Display mods 'tower' & 'city' are IE8+ compatible.
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Chrome</div>
+					<span class="icon-chrome"></span>
+					<div class="desc">
+						Chrome loves it!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">FireFox</div>
+					<span class="icon-firefox"></span>
+					<div class="desc">
+						FireFox loves it!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Opera</div>
+					<span class="icon-opera"></span>
+					<div class="desc">
+						Opera loves it!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Safari</div>
+					<span class="icon-safari"></span>
+					<div class="desc">
+						Safari loves it!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Love</div>
+					<span class="icon-heart"></span>
+					<div class="desc">
+						Love will not tear us apart again.
+					</div>
+				</article>
+			</div>
+
+			<h2>Babylons's City Display:</h2>
+			<div id="babylongrid4">
+				<article class="donate">
+					<div class="desc">
+						Buy me a beer:<br><br>
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+						<input type="hidden" name="cmd" value="_s-xclick">
+						<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+						">
+						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+						</form>
+
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Info</div>
+					<span class="icon-info"></span>
+					<div class="desc">
+						Babylon Grid is lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent column width support and few display mods. And it's faster than you ever think!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Code</div>
+					<span class="icon-embed"></span>
+					<div class="desc">
+						JavaScript is setting up column grid and organize articles. Whole layout is define in CSS so it's pretty fast and easy customizable.
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Download!</div>
+					<a href="#" class="icon-cloud-download"></a>
+					<div class="desc">
+						Download if from <a href="https://github.com/turboMaCk/Babylon-Grid">GitHub</a>
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Responsive</div>
+					<span class="icon-screen"></span>
+					<div class="desc">
+						It's 100% responsive! Try resize your browser window.
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">HTML5</div>
+					<span class="icon-html5"></span>
+					<div class="desc">
+						We all love HTML5, right? But it's also xHTML compatible;-)
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">CSS</div>
+					<span class="icon-css3"></span>
+					<div class="desc">
+						Layout made with CSS or SASS!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Follow me on twitter</div>
+					<a href="https://twitter.com/turbo_MaCk" class="icon-twitter"></a>
+					<div class="desc">
+						<a href="https://twitter.com/turbo_MaCk">@turbo_MaCk</a>
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Smile!</div>
+					<span class="icon-smiley"></span>
+					<div class="desc">
+						It's fast & easy to use:-)
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">It doesn't bite!</div>
+					<span class="icon-pacman"></span>
+					<div class="desc">
+						Pac-Man is an arcade game developed by Namco and first released in Japan on May 22, 1980.
+						Source: <a href="http://en.wikipedia.org/wiki/Pac-Man">wikipedia.org</a>
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">IE Compatible</div>
+					<span class="icon-IE"></span>
+					<div class="desc">
+						Yes, it works in Internet Explorer 6+. Display mods 'tower' & 'city' are IE8+ compatible.
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Chrome</div>
+					<span class="icon-chrome"></span>
+					<div class="desc">
+						Chrome loves it!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">FireFox</div>
+					<span class="icon-firefox"></span>
+					<div class="desc">
+						FireFox loves it!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Opera</div>
+					<span class="icon-opera"></span>
+					<div class="desc">
+						Opera loves it!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Safari</div>
+					<span class="icon-safari"></span>
+					<div class="desc">
+						Safari loves it!
+					</div>
+				</article>
+				<article>
+					<div class="h3 title">Love</div>
+					<span class="icon-heart"></span>
+					<div class="desc">
+						Love will not tear us apart again.
+					</div>
+				</article>
+			</div>
+
+		</div>
+		<footer>
+			Licence: MIT<br>
+			Author: Marek Fajkus [<a href="http://marekfajkus.com">http://marekfajkus.com</a>]
+		</footer>
+		<script src="javascript/jquery.min.js" ></script>
+		<script src="javascript/jquery.babylongrid.js"></script>
+		<script>
+			(function($){
+
+				$('#babylongrid').babylongrid({
+					firstToRight: true
+				});
+
+				$('#babylongrid2').babylongrid({
+					scheme: [
+						{
+							minWidth: 960,
+							columns: 3
+						},
+						{
+							minWidth: 500,
+							columns: 2
+						},
+						{
+							minWidth: 0,
+							columns: 1
+						}
+					],
+					afterRender: function() {
+						console.log('rendered');
+					}
+				});
+
+				$('#babylongrid3').babylongrid({
+					display: 'tower'
+				});
+
+				$('#babylongrid4').babylongrid({
+					display: 'city'
+				});
+
+			}(jQuery));
+		</script>
+	</body>
+</html>

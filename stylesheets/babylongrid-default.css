@@ -1,0 +1,46 @@
+/*
+ *  Project: Babylon Grid sampl SASS/CSS
+ *  Description: Lightweight jQuery + CSS plugin for creating responsive, dynamic & customizable pinterest like grid with diferent colun width support and few display mods.
+ *  Author: Marek Fajkus @turbo_MaCk (http://marekrocks.it)
+ *  License: MIT
+ */
+/*
+ *  HOW TO:
+ *  Start with container class container-{ number of columns };
+ *  Set columns by class columns-{ column number } and set them width
+ */
+.babylongrid-container .column {
+  position: relative;
+  display: inline;
+  float: left; }
+.babylongrid-container.container-4 .column-1, .babylongrid-container.container-4 .column-3 {
+  width: 30%; }
+.babylongrid-container.container-4 .column-2, .babylongrid-container.container-4 .column-4 {
+  width: 20%; }
+.babylongrid-container.container-3 .column-1, .babylongrid-container.container-3 .column-2 {
+  width: 35%; }
+.babylongrid-container.container-3 .column-3 {
+  width: 30%; }
+.babylongrid-container.container-2 .column-1 {
+  width: 60%; }
+.babylongrid-container.container-2 .column-2 {
+  width: 40%; }
+.babylongrid-container.container-1 .column-1 {
+  width: 100%; }
+.babylongrid-container:after, .babylongrid-container:before {
+  content: '';
+  display: table;
+  height: 0;
+  clear: both; }
+.babylongrid-container.tower .column {
+  vertical-align: bottom; }
+.babylongrid-container.city .column {
+  vertical-align: middle; }
+
+.babylongrid-container.tower, .babylongrid-container.city {
+  display: table; }
+  .babylongrid-container.tower .column, .babylongrid-container.city .column {
+    display: table-cell;
+    float: none; }
+
+/*# sourceMappingURL=babylongrid-default.css.map */
