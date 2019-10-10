@@ -306,7 +306,7 @@
             $(this.element)
                 .off('babylongrid:load')
                 .off('babylongrid:resize')
-                .off('babylongrid:reset')
+                .off('babylongrid:reload')
                 .off('babylongrid:destroy');
 
             $(this.element).html(this._InnerHtmlbackup);
