@@ -296,7 +296,7 @@
         */
         _overload: function() {
             this.cached.articles = [];
-            $(this.element).html('');
+            $(this.element).find('.babylongrid-container').html('');
             this._loadNewArticles();
         },
         /*
