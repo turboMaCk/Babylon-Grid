@@ -50,6 +50,7 @@ Init plugin on element:
         <article>
             Fifth article
         </article>
+    </div>
     <script type="text/javascript">
         (function($) {
             $('#babylongrid').babylongrid();
